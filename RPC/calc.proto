@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message Number {
+  float value = 1;
+}
+
+message SessionOperation {
+  string token = 1;
+  float value = 2;
+}
+
+service Calculator {
+  rpc Create(Number) returns (SessionOperation) { }
+  rpc Answer(SessionOperation) returns (Number) { }
+
+  rpc Add(SessionOperation) returns (Number) { }
+  rpc Subtract(SessionOperation) returns (Number) { }
+  rpc Multiply(SessionOperation) returns (Number) { }
+  rpc Divide(SessionOperation) returns (Number) { }
+}
